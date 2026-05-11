@@ -1,0 +1,45 @@
+{
+  "model": "gpt-4o",
+  "samples": [
+    {
+      "label": "Refactor",
+      "korean": "이 함수 동작은 그대로 두고 더 깔끔하게 바꿔줘.",
+      "english": "Could you refactor this function to make it cleaner while keeping the behavior the same?",
+      "korean_tokens": 19,
+      "english_tokens": 17,
+      "delta": 2
+    },
+    {
+      "label": "Review",
+      "korean": "이 PR에서 회귀 버그가 생길 만한 부분을 리뷰해줘.",
+      "english": "Could you review this PR for possible regressions?",
+      "korean_tokens": 18,
+      "english_tokens": 10,
+      "delta": 8
+    },
+    {
+      "label": "Tests",
+      "korean": "이 변경사항에 맞는 테스트를 추가하고 실패하는 케이스도 확인해줘.",
+      "english": "Please add tests for this change and check the failing cases too.",
+      "korean_tokens": 20,
+      "english_tokens": 13,
+      "delta": 7
+    },
+    {
+      "label": "Bug fix",
+      "korean": "로그인 후 대시보드로 이동하지 않는 문제를 원인부터 찾아서 고쳐줘.",
+      "english": "Please investigate why login does not redirect to the dashboard and fix it.",
+      "korean_tokens": 22,
+      "english_tokens": 14,
+      "delta": 8
+    },
+    {
+      "label": "Docs",
+      "korean": "설치 방법을 README에 짧고 알기 쉽게 정리해줘.",
+      "english": "Please make the installation instructions in the README short and easy to follow.",
+      "korean_tokens": 17,
+      "english_tokens": 14,
+      "delta": 3
+    }
+  ]
+}
