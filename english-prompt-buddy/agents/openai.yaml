@@ -1,0 +1,4 @@
+interface:
+  display_name: "English Prompt Buddy"
+  short_description: "A gentle English coach for AI prompts"
+  default_prompt: "Hey buddy, lightly polish my English before helping with the task."
