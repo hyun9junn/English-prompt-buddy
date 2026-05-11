@@ -17,54 +17,38 @@
 - 문법 설명보다 바로 써먹는 개발 요청 표현을 배우고 싶은 사람
 - Codex나 Claude에게 더 명확하고 안전한 영어 프롬프트를 주고 싶은 사람
 
-## 설치: Codex
+## 설치: Claude Code
 
-Codex에서 GitHub repo 경로로 설치할 수 있습니다.
+모든 프로젝트에서 쓸 수 있게 전역으로 설치하려면:
 
 ```bash
-python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo hyun9junn/English-prompt-buddy \
-  --path english-prompt-buddy
+curl -fsSL https://raw.githubusercontent.com/hyun9junn/English-prompt-buddy/main/setup.sh | bash
 ```
 
-수동으로 설치하려면 이 저장소의 `english-prompt-buddy` 폴더를 `~/.codex/skills/` 아래에 복사하면 됩니다.
+현재 프로젝트에서만 쓰고 싶다면 프로젝트 루트에서:
 
 ```bash
-mkdir -p ~/.codex/skills
-cp -R english-prompt-buddy ~/.codex/skills/
+curl -fsSL https://raw.githubusercontent.com/hyun9junn/English-prompt-buddy/main/setup.sh | bash -s -- --project
+```
+
+설치 후에는 Claude Code를 재시작해야 새 skill이 인식됩니다.
+
+## 설치: Codex
+
+Codex에서는 `$skill-installer`를 사용해 GitHub repo에서 설치할 수 있습니다.
+
+Codex에 아래처럼 요청하세요.
+
+```text
+Use $skill-installer to install the skill from:
+https://github.com/hyun9junn/English-prompt-buddy/tree/main/english-prompt-buddy
 ```
 
 설치 후에는 Codex를 재시작해야 새 skill이 인식됩니다.
 
-## 설치: Claude Code
-
-Claude Code도 같은 `SKILL.md` 기반 skill 구조를 사용합니다. 이 저장소의 `english-prompt-buddy` 폴더를 Claude Code의 personal skills 폴더인 `~/.claude/skills/` 아래에 넣으면 모든 프로젝트에서 사용할 수 있습니다.
-
-GitHub에 올린 뒤 설치하려면 이렇게 받을 수 있습니다.
-
-```bash
-mkdir -p ~/.claude/skills
-git clone https://github.com/hyun9junn/English-prompt-buddy.git /tmp/English-prompt-buddy
-cp -R /tmp/English-prompt-buddy/english-prompt-buddy ~/.claude/skills/
-```
-
-이미 저장소를 내려받았다면 이렇게 복사하면 됩니다.
-
-```bash
-mkdir -p ~/.claude/skills
-cp -R english-prompt-buddy ~/.claude/skills/
-```
-
-특정 프로젝트에서만 쓰고 싶다면 프로젝트 루트에 `.claude/skills/` 폴더를 만들고 그 아래에 복사하세요.
-
-```bash
-mkdir -p .claude/skills
-cp -R english-prompt-buddy .claude/skills/
-```
-
-Claude Code에서는 `/english-prompt-buddy`로 직접 실행하거나, `hey buddy`처럼 skill 설명과 맞는 요청을 하면 자동으로 사용될 수 있습니다. Claude Code가 이미 실행 중이면 새 skill 폴더를 감지하지 못할 수 있으니, 처음 설치한 뒤에는 Claude Code를 다시 시작하는 것이 가장 확실합니다.
-
 ## 사용법
+
+Claude Code에서는 `/english-prompt-buddy`로 직접 실행하거나, `hey buddy`처럼 skill 설명과 맞는 요청을 하면 자동으로 사용될 수 있습니다.
 
 Buddy를 켜려면 이렇게 말하면 됩니다.
 
@@ -114,17 +98,7 @@ teach me this: Can you make this function more clean without change behavior?
 
 ## 파일 구조
 
-```text
-English-prompt-buddy/
-├── README.md
-├── LICENSE
-└── english-prompt-buddy/
-    ├── SKILL.md
-    └── agents/
-        └── openai.yaml
-```
-
-설치할 때는 `english-prompt-buddy/` 폴더 전체를 각 도구의 skills 폴더 아래에 넣으면 됩니다.
+실제 skill 패키지는 아래 `english-prompt-buddy/` 폴더입니다.
 
 ```text
 english-prompt-buddy/
@@ -132,5 +106,3 @@ english-prompt-buddy/
 └── agents/
     └── openai.yaml
 ```
-
-`SKILL.md`는 skill의 실제 동작 지침입니다. `agents/openai.yaml`은 Codex UI에서 보일 이름과 설명을 담는 파일이고, Claude Code에서는 없어도 되지만 있어도 문제 없는 보조 metadata입니다.
