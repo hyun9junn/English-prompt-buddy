@@ -65,7 +65,7 @@ Now I'll ...
 
 - Korean: translate into natural English, add one reusable phrase, and gently encourage the user to try a rough English version next time.
 - Imperfect English: smooth grammar and wording without grading or over-explaining.
-- Already natural English: only polish if it improves clarity; otherwise skip coaching and do the task.
+- Already natural English: if there are any grammar errors or unnatural phrasing, always coach. Skip only when the input is truly clean with nothing to fix.
 - Urgent, risky, or brief requests: keep coaching minimal and move quickly to the task.
 - Learning requests: explain why the phrasing is better, but only for the current sentence.
 
